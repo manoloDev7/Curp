@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Inicio</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Inter;
+        background-color: hsl(0, 0%, 85%);
+        color: #1a1a1a;
+        font-family: Inter;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+        background-color: hsl(0, 0%, 96%);
+        color: hsl(0, 0%, 40%);
+        font-weight: bolder;
+        box-shadow: 0 3px 3px hsl(0, 0%, 70%);
+      }
+      nav .brand {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        margin-right: 70px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: inherit;
+        font-weight: 400;
+        transition: opacity 0.2s ease-in-out;
+        font-size: 1.2vw;
+      }
+      nav ul li a:hover {
+        color: hsl(0, 0%, 8%);
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
+          padding: 1rem 1.5rem;
+        }
+        nav ul {
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+      }
+      .logo {
+        height: 100px;
+        margin-left: 60px;
+      }
+      .c-titulo {
+        margin-top: 40px;
+        margin-left: 80px;
+        margin-bottom: 40px;
+      }
+      .c-titulo .titulo {
+        font-size: 4vw;
+        color: hsl(0, 0%, 24%);
+      }
+      .c-titulo .sub {
+        font-weight: 400;
+        margin-left: 4px;
+        color: hsl(0, 0%, 33%);
+      }
+      .formu1 {
+        background-color: hsl(0, 0%, 94%);
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        border-radius: 3px;
+      }
+      .formu1 label {
+        margin-bottom: 10px;
+      }
+      .formu1 input {
+        padding: 8px;
+      }
+      label {
+        font-size: 1.2vw;
+        color: hsl(0, 0%, 8%);
+      }
+      input {
+        height: 40px;
+        font-size: 1vw;
+        border: 1px inset;
+        background-color: hsl(0, 0%, 90%);
+      }
+      .formu2 {
+        background-color: hsl(0, 0%, 94%);
+        padding: 30px;
+        display: flex;
+        flex-direction: row;
+        max-width: 1200px;
+        border-radius: 3px;
+        display: none;
+      }
+      .formu2 label {
+        margin-bottom: 3px;
+      }
+      .formu2 input {
+        margin-bottom: 20px;
+        padding: 8px;
+      }
+      select {
+        height: 40px;
+        margin-bottom: 20px;
+        border: 1px inset;
+        background-color: hsl(0, 0%, 90%);
+      }
+      section {
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+      .sec1,
+      .sec2 {
+        display: inline-block;
+        width: 100%;
+        flex-direction: column;
+        display: flex;
+        margin-right: 20px;
+      }
+      .boton1 {
+        padding: 8px;
+        border-radius: 3px;
+        border: 1px outset;
+        box-shadow: 0px 1px 1px hsl(0, 0%, 10%);
+        font-size: 1vw;
+        color: hsl(0, 0%, 7%);
+        background-color: hsl(0, 0%, 98%);
+      }
+      .boton1:hover {
+        background-color: hsl(0, 0%, 90%);
+      }
+      .c-botones {
+        margin-bottom: 2px;
+      }
+      .boton3 {
+        display: inline-block;
+        padding: 8px;
+        border-radius: 3px;
+        border: 1px outset;
+        box-shadow: 0px 1px 1px hsl(0, 0%, 10%);
+        font-size: 1vw;
+        color: hsl(0, 0%, 7%);
+        background-color: hsl(0, 0%, 98%);
+        width: 130px;
+        margin-left: 244px;
+      }
+      .c-cta1 {
+        display: flex;
+        flex-direction: row;
+      }
+      .boton3:hover {
+        background-color: hsl(0, 0%, 90%);
+      }
+      .boton4 {
+        padding: 8px;
+        border-radius: 3px;
+        border: 1px;
+        box-shadow: 0px 2px 2px hsl(0, 0%, 8%);
+        font-size: 1vw;
+        color: hsl(0, 0%, 7%);
+        background-color: hsl(0, 0%, 98%);
+      }
+      .boton4:hover {
+        background-color: hsl(0, 0%, 92%);
+        box-shadow: 0px 2px 2px hsl(0, 0%, 8%);
+      }
+      .info{
+        background-color: hsl(201, 93%, 82%);
+        margin-top: 200px;
+        height:150px;
+        display: flex;
+        align-items: center;
+        padding: 40px;
+      
+      }
+      .info p {
+        font-size: 20px;
+        
+
+      }
+      footer {
+        background-color: #0f3b27;
+        color: #f2f2f2;
+        padding: 3rem 1.5rem;
+        margin-top: 4rem;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .footer-grid h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .footer-grid p {
+        margin-bottom: 0.8rem;
+        line-height: 1.5;
+        font-size: 0.95rem;
+      }
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+      .footer-links li {
+        margin-bottom: 0.6rem;
+      }
+      .footer-links a {
+        color: inherit;
+        text-decoration: none;
+        transition: opacity 0.2s ease-in-out;
+        font-size: 0.95rem;
+      }
+      .footer-links a:hover {
+        opacity: 0.7;
+      }
+      .footer-meta {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 0.85rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+      }
+      .footer-meta span,
+      .footer-meta a {
+        opacity: 0.8;
+      }
+      .footer-meta a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .footer-meta a:hover {
+        text-decoration: underline;
+      }
+      @media (max-width: 1024px) {
+        section {
+          margin-left: 40px;
+          margin-right: 40px;
+        }
+        .formu1,
+        .formu2 {
+          width: 100%;
+        }
+        .formu2 {
+          gap: 1.5rem;
+        }
+        .logo {
+          margin-left: 30px;
+        }
+        .c-titulo {
+          margin-left: 40px;
+          margin-right: 40px;
+        }
+      }
+      @media (max-width: 768px) {
+        nav ul {
+          margin-right: 0;
+          width: 100%;
+          justify-content: space-between;
+        }
+        nav ul li a {
+          font-size: 1rem;
+        }
+        label {
+          font-size: 1rem;
+        }
+        input,
+        select {
+          font-size: 1rem;
+          width: 100%;
+        }
+        .boton1,
+        .boton3,
+        .boton4 {
+          font-size: 0.95rem;
+        }
+        .boton3 {
+          margin-left: 0;
+          width: auto;
+        }
+        .c-cta1 {
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+        section {
+          margin-left: 24px;
+          margin-right: 24px;
+        }
+        .formu1,
+        .formu2 {
+          padding: 24px;
+        }
+        .formu2 {
+          flex-direction: column;
+        }
+        .sec1,
+        .sec2 {
+          margin-right: 0;
+        }
+        .info {
+          margin-top: 120px;
+          height: auto;
+        }
+        .info p {
+          font-size: 1rem;
+        }
+      }
+      @media (max-width: 600px) {
+        body {
+          font-size: 16px;
+        }
+        nav {
+          align-items: center;
+        }
+        .logo {
+          height: 70px;
+          margin-left: 0;
+        }
+        nav ul {
+          justify-content: center;
+          gap: 1.2rem;
+        }
+        .c-titulo {
+          margin: 32px 20px;
+          text-align: center;
+        }
+        .c-titulo .titulo {
+          font-size: 9vw;
+        }
+        .c-titulo .sub {
+          font-size: 1rem;
+          margin-left: 0;
+        }
+        .c-cta1 {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .boton3 {
+          width: 100%;
+        }
+        .formu1,
+        .formu2 {
+          padding: 20px;
+        }
+        .info {
+          margin-top: 80px;
+          padding: 24px;
+        }
+        footer {
+          padding: 2.5rem 1.25rem;
+        }
+        .footer-meta {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .footer-meta span,
+        .footer-meta a {
+          width: 100%;
+        }
+      }
+      @media (max-width: 420px) {
+        nav ul {
+          gap: 0.8rem;
+        }
+        nav ul li a {
+          font-size: 0.95rem;
+        }
+        .boton1 {
+          width: 100%;
+          margin-bottom: 0.5rem;
+        }
+        .c-botones {
+          display: flex;
+          flex-direction: column;
+        }
+        .formu2 select,
+        .formu2 input {
+          min-width: 0;
+        }
+        .info p {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <img src="logoGobierno2.svg" class="logo" alt="" />
+      <ul>
+        <li><a href="#generar">Tramites</a></li>
+        <li><a href="#validar">Gobierno</a></li>
+        <li><a href="#ayuda">Ayuda</a></li>
+      </ul>
+    </nav>
+    <div class="c-titulo">
+      <h1 class="titulo">Consulta tu CURP</h1>
+      <h3 class="sub">
+        La consulta puede efectuarse indicando la clave CURP cuando ya la conoce
+        o proporcionando su nombre y datos de nacimiento.
+      </h3>
+    </div>
+
+    <section>
+      <div class="c-botones">
+        <button class="boton1 bolo" onclick="dalo()">
+          Clave Ùnica De Registro Poblacional
+        </button>
+        <button class="boton1 bolo2" onclick="dale()">Datos Personales</button>
+      </div>
+      <form action="" class="formu1">
+        <label for="">Clave Única de Registro de Población (CURP)*:</label>
+        <input type="text" placeholder="Ingrese su CURP" required /><br />
+        <div class="c-cta1">
+          <a href="" style="display: inline-block">No conoces tu CURP?</a>
+          <button class="boton3">Buscar</button>
+        </div>
+      </form>
+      <form action="" class="formu2">
+        <div class="sec1">
+          <label for="">Nombre(s)</label>
+          <input type="text" placeholder="Ingresa tu nombre" required />
+          <label for="">Primer Apellido</label>
+          <input
+            type="text"
+            placeholder="Ingresa tu primer apellido"
+            required
+          />
+          <label for="">Segundo Apellido</label>
+          <input
+            type="text"
+            placeholder="Ingresa tu Segundo apellido"
+            required
+          />
+          <label for="">Dia de nacimiento</label>
+          <select name="" id="" required>
+            <option value="">01</option>
+            <option value="">02</option>
+            <option value="">03</option>
+            <option value="">04</option>
+            <option value="">05</option>
+            <option value="">06</option>
+            <option value="">07</option>
+            <option value="">08</option>
+            <option value="">09</option>
+            <option value="">10</option>
+            <option value="">11</option>
+            <option value="">12</option>
+            <option value="">13</option>
+            <option value="">14</option>
+            <option value="">15</option>
+            <option value="">16</option>
+            <option value="">17</option>
+            <option value="">18</option>
+            <option value="">19</option>
+            <option value="">20</option>
+            <option value="">21</option>
+            <option value="">22</option>
+            <option value="">23</option>
+            <option value="">24</option>
+            <option value="">25</option>
+            <option value="">26</option>
+            <option value="">27</option>
+            <option value="">28</option>
+            <option value="">29</option>
+            <option value="">30</option>
+            <option value="">31</option>
+          </select>
+        </div>
+
+        <div class="sec2">
+          <label for="">Mes de nacimiento</label>
+          <select name="" id="" required>
+            <option value="">01</option>
+            <option value="">02</option>
+            <option value="">03</option>
+            <option value="">04</option>
+            <option value="">05</option>
+            <option value="">06</option>
+            <option value="">07</option>
+            <option value="">08</option>
+            <option value="">09</option>
+            <option value="">10</option>
+            <option value="">11</option>
+            <option value="">12</option>
+          </select>
+          <label for="">Año de nacimiento</label>
+          <input type="number" placeholder="Eje:2002" required />
+          <label for="">Sexo</label>
+          <select name="" id="" required>
+            <option value="">Hombre</option>
+            <option value="">Mujer</option>
+          </select>
+          <label for="">Estado</label>
+          <select name="" id="" required>
+            <option value="">Aguascalientes</option>
+            <option value="">Baja California</option>
+            <option value="">Baja California Sur</option>
+            <option value="">Campeche</option>
+            <option value="">Chiapas</option>
+            <option value="">Chihuahua</option>
+            <option value="">Ciudad de México</option>
+            <option value="">Coahuila</option>
+            <option value="">Colima</option>
+            <option value="">Durango</option>
+            <option value="">Estado de México</option>
+            <option value="">Guanajuato</option>
+            <option value="">Guerrero</option>
+            <option value="">Hidalgo</option>
+            <option value="">Jalisco</option>
+            <option value="">Michoacán</option>
+            <option value="">Morelos</option>
+            <option value="">Nayarit</option>
+            <option value="">Nuevo León</option>
+            <option value="">Oaxaca</option>
+            <option value="">Puebla</option>
+            <option value="">Querétaro</option>
+            <option value="">Quintana Roo</option>
+            <option value="">San Luis Potosí</option>
+            <option value="">Sinaloa</option>
+            <option value="">Sonora</option>
+            <option value="">Tabasco</option>
+            <option value="">Tamaulipas</option>
+            <option value="">Tlaxcala</option>
+            <option value="">Veracruz</option>
+            <option value="">Yucatán</option>
+            <option value="">Zacatecas</option>
+            <option value="">Nacido en el extrangero</option>
+          </select>
+          <button class="boton4" type="submit">Enviar</button>
+        </div>
+      </form>
+
+      <div class="info">
+        <p>
+          ¡Sugerencia! Para solicitar asistencia telefónica sobre el servicio de
+          la CURP, puedes comunicarte al Centro de Atención y Servicios, de
+          lunes a viernes, de 08:00 a 16:00 horas, a los números telefónicos:
+          800 9 11 11 11, extensiones 15100 y 15101.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-grid">
+        <div>
+          <h3>Gobierno de México</h3>
+          <p>
+            Secretaría de Gobernación · Dirección General del Registro Nacional
+            de Población e Identidad. Avanzamos para acercar trámites y
+            servicios a todas las personas.
+          </p>
+        </div>
+        <div>
+          <h3>Servicios en línea</h3>
+          <ul class="footer-links">
+            <li><a href="https://www.gob.mx/curp/">Consulta tu CURP</a></li>
+            <li><a href="https://www.gob.mx/tramites">Trámites y servicios</a></li>
+            <li><a href="https://www.gob.mx/gobierno">Dependencias federales</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contacto ciudadano</h3>
+          <p>Centro de Contacto Ciudadano: 55 5128 0000</p>
+          <p>Atención CURP: 800 911 11 11 ext. 15100 y 15101</p>
+          <p>Correo: atencion@segob.gob.mx</p>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>© 2024 Gobierno de México</span>
+        <a href="https://www.gob.mx/privacidadintegral">Política de privacidad</a>
+        <span>Última actualización: abril 2024</span>
+      </div>
+    </footer>
+
+    <script>
+      function dale() {
+        const cambio = document.querySelector(".bolo2");
+        const cambio1 = document.querySelector(".bolo");
+        const formu = document.querySelector(".formu2");
+        const formula1 = document.querySelector(".formu1");
+        if (cambio.innerText === "Datos Personales") {
+          formu.style.display = "flex";
+          formula1.style.display = "none";
+        }
+      }
+
+      function dalo() {
+        const cambio = document.querySelector(".bolo2");
+        const cambio1 = document.querySelector(".bolo");
+        const formu = document.querySelector(".formu2");
+        const formula1 = document.querySelector(".formu1");
+        if (cambio1.innerText === "Clave Ùnica De Registro Poblacional") {
+          formula1.style.display = "flex";
+          formu.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
