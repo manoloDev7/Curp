@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <title>Inicio</title>
     <style>
       * {
@@ -125,6 +126,23 @@
         margin-bottom: 20px;
         padding: 8px;
       }
+      .resultado-curp {
+        background-color: hsl(0, 0%, 94%);
+        padding: 24px;
+        margin-top: 24px;
+        border-radius: 3px;
+        display: none;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .resultado-curp h3 {
+        font-size: 1.4rem;
+        color: hsl(0, 0%, 18%);
+      }
+      .resultado-curp p {
+        font-size: 1rem;
+        color: hsl(0, 0%, 20%);
+      }
       select {
         height: 40px;
         margin-bottom: 20px;
@@ -190,19 +208,16 @@
         background-color: hsl(0, 0%, 92%);
         box-shadow: 0px 2px 2px hsl(0, 0%, 8%);
       }
-      .info{
+      .info {
         background-color: hsl(201, 93%, 82%);
         margin-top: 200px;
-        height:150px;
+        height: 150px;
         display: flex;
         align-items: center;
         padding: 40px;
-      
       }
       .info p {
         font-size: 20px;
-        
-
       }
       footer {
         background-color: #0f3b27;
@@ -448,124 +463,151 @@
         <label for="">Clave Única de Registro de Población (CURP)*:</label>
         <input type="text" placeholder="Ingrese su CURP" required /><br />
         <div class="c-cta1">
-          <a href="" style="display: inline-block">No conoces tu CURP?</a>
+          <a href="#" class="mostrar-datos" style="display: inline-block"
+            >No conoces tu CURP?</a
+          >
           <button class="boton3">Buscar</button>
         </div>
       </form>
-      <form action="" class="formu2">
+      <form action="" class="formu2" id="form-curp">
         <div class="sec1">
-          <label for="">Nombre(s)</label>
-          <input type="text" placeholder="Ingresa tu nombre" required />
-          <label for="">Primer Apellido</label>
+          <label for="nombre">Nombre(s)</label>
           <input
             type="text"
+            id="nombre"
+            placeholder="Ingresa tu nombre"
+            autocomplete="off"
+            required
+          />
+          <label for="apellido1">Primer Apellido</label>
+          <input
+            type="text"
+            id="apellido1"
             placeholder="Ingresa tu primer apellido"
+            autocomplete="off"
             required
           />
-          <label for="">Segundo Apellido</label>
+          <label for="apellido2">Segundo Apellido</label>
           <input
             type="text"
-            placeholder="Ingresa tu Segundo apellido"
+            id="apellido2"
+            placeholder="Ingresa tu segundo apellido"
+            autocomplete="off"
             required
           />
-          <label for="">Dia de nacimiento</label>
-          <select name="" id="" required>
-            <option value="">01</option>
-            <option value="">02</option>
-            <option value="">03</option>
-            <option value="">04</option>
-            <option value="">05</option>
-            <option value="">06</option>
-            <option value="">07</option>
-            <option value="">08</option>
-            <option value="">09</option>
-            <option value="">10</option>
-            <option value="">11</option>
-            <option value="">12</option>
-            <option value="">13</option>
-            <option value="">14</option>
-            <option value="">15</option>
-            <option value="">16</option>
-            <option value="">17</option>
-            <option value="">18</option>
-            <option value="">19</option>
-            <option value="">20</option>
-            <option value="">21</option>
-            <option value="">22</option>
-            <option value="">23</option>
-            <option value="">24</option>
-            <option value="">25</option>
-            <option value="">26</option>
-            <option value="">27</option>
-            <option value="">28</option>
-            <option value="">29</option>
-            <option value="">30</option>
-            <option value="">31</option>
+          <label for="dia">Dia de nacimiento</label>
+          <select id="dia" required>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
           </select>
         </div>
 
         <div class="sec2">
-          <label for="">Mes de nacimiento</label>
-          <select name="" id="" required>
-            <option value="">01</option>
-            <option value="">02</option>
-            <option value="">03</option>
-            <option value="">04</option>
-            <option value="">05</option>
-            <option value="">06</option>
-            <option value="">07</option>
-            <option value="">08</option>
-            <option value="">09</option>
-            <option value="">10</option>
-            <option value="">11</option>
-            <option value="">12</option>
+          <label for="mes">Mes de nacimiento</label>
+          <select id="mes" required>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
           </select>
           <label for="">Año de nacimiento</label>
-          <input type="number" placeholder="Eje:2002" required />
-          <label for="">Sexo</label>
-          <select name="" id="" required>
-            <option value="">Hombre</option>
-            <option value="">Mujer</option>
+          <input
+            type="number"
+            id="anio"
+            placeholder="Ej: 2002"
+            min="1900"
+            max="2099"
+            required
+          />
+          <label for="sexo">Sexo</label>
+          <select id="sexo" required>
+            <option value="H">Hombre</option>
+            <option value="M">Mujer</option>
           </select>
-          <label for="">Estado</label>
-          <select name="" id="" required>
-            <option value="">Aguascalientes</option>
-            <option value="">Baja California</option>
-            <option value="">Baja California Sur</option>
-            <option value="">Campeche</option>
-            <option value="">Chiapas</option>
-            <option value="">Chihuahua</option>
-            <option value="">Ciudad de México</option>
-            <option value="">Coahuila</option>
-            <option value="">Colima</option>
-            <option value="">Durango</option>
-            <option value="">Estado de México</option>
-            <option value="">Guanajuato</option>
-            <option value="">Guerrero</option>
-            <option value="">Hidalgo</option>
-            <option value="">Jalisco</option>
-            <option value="">Michoacán</option>
-            <option value="">Morelos</option>
-            <option value="">Nayarit</option>
-            <option value="">Nuevo León</option>
-            <option value="">Oaxaca</option>
-            <option value="">Puebla</option>
-            <option value="">Querétaro</option>
-            <option value="">Quintana Roo</option>
-            <option value="">San Luis Potosí</option>
-            <option value="">Sinaloa</option>
-            <option value="">Sonora</option>
-            <option value="">Tabasco</option>
-            <option value="">Tamaulipas</option>
-            <option value="">Tlaxcala</option>
-            <option value="">Veracruz</option>
-            <option value="">Yucatán</option>
-            <option value="">Zacatecas</option>
-            <option value="">Nacido en el extrangero</option>
+          <label for="estado">Estado</label>
+          <select id="estado" required>
+            <option value="AS">Aguascalientes</option>
+            <option value="BC">Baja California</option>
+            <option value="BS">Baja California Sur</option>
+            <option value="CC">Campeche</option>
+            <option value="CS">Chiapas</option>
+            <option value="CH">Chihuahua</option>
+            <option value="CL">Coahuila</option>
+            <option value="DF">Ciudad de México</option>
+            <option value="CM">Colima</option>
+            <option value="DG">Durango</option>
+            <option value="MC">Estado de México</option>
+            <option value="GT">Guanajuato</option>
+            <option value="GR">Guerrero</option>
+            <option value="HG">Hidalgo</option>
+            <option value="JC">Jalisco</option>
+            <option value="MN">Michoacán</option>
+            <option value="MS">Morelos</option>
+            <option value="NT">Nayarit</option>
+            <option value="NL">Nuevo León</option>
+            <option value="OC">Oaxaca</option>
+            <option value="PL">Puebla</option>
+            <option value="QT">Querétaro</option>
+            <option value="QR">Quintana Roo</option>
+            <option value="SP">San Luis Potosí</option>
+            <option value="SL">Sinaloa</option>
+            <option value="SR">Sonora</option>
+            <option value="TC">Tabasco</option>
+            <option value="TS">Tamaulipas</option>
+            <option value="TL">Tlaxcala</option>
+            <option value="VZ">Veracruz</option>
+            <option value="YN">Yucatán</option>
+            <option value="ZS">Zacatecas</option>
+            <option value="NE">Nacido en el extranjero</option>
           </select>
           <button class="boton4" type="submit">Enviar</button>
         </div>
       </form>
+      <div class="resultado-curp" id="resultado-curp">
+        <h3>Resultado de CURP</h3>
+        <p><strong>Nombre:</strong> <span id="resultado-nombre"></span></p>
+        <p><strong>CURP:</strong> <span id="resultado-curp-texto"></span></p>
+        <button class="boton4" type="button" id="btn-pdf" disabled>
+          Descargar PDF
+        </button>
+      </div>
 
       <div class="info">
         <p>
@@ -591,8 +633,12 @@
           <h3>Servicios en línea</h3>
           <ul class="footer-links">
             <li><a href="https://www.gob.mx/curp/">Consulta tu CURP</a></li>
-            <li><a href="https://www.gob.mx/tramites">Trámites y servicios</a></li>
-            <li><a href="https://www.gob.mx/gobierno">Dependencias federales</a></li>
+            <li>
+              <a href="https://www.gob.mx/tramites">Trámites y servicios</a>
+            </li>
+            <li>
+              <a href="https://www.gob.mx/gobierno">Dependencias federales</a>
+            </li>
           </ul>
         </div>
         <div>
@@ -604,11 +650,14 @@
       </div>
       <div class="footer-meta">
         <span>© 2024 Gobierno de México</span>
-        <a href="https://www.gob.mx/privacidadintegral">Política de privacidad</a>
+        <a href="https://www.gob.mx/privacidadintegral"
+          >Política de privacidad</a
+        >
         <span>Última actualización: abril 2024</span>
       </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
       function dale() {
         const cambio = document.querySelector(".bolo2");
@@ -630,6 +679,260 @@
           formula1.style.display = "flex";
           formu.style.display = "none";
         }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const mostrarDatos = document.querySelector(".mostrar-datos");
+        if (mostrarDatos) {
+          mostrarDatos.addEventListener("click", function (event) {
+            event.preventDefault();
+            dale();
+          });
+        }
+        inicializarGeneradorCurp();
+      });
+
+      function inicializarGeneradorCurp() {
+        const formCurp = document.getElementById("form-curp");
+        const resultado = document.getElementById("resultado-curp");
+        const textoCurp = document.getElementById("resultado-curp-texto");
+        const textoNombre = document.getElementById("resultado-nombre");
+        const botonPdf = document.getElementById("btn-pdf");
+        let datosGenerados = null;
+
+        if (!formCurp) {
+          return;
+        }
+
+        formCurp.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const nombres = document.getElementById("nombre").value.trim();
+          const apellido1 = document.getElementById("apellido1").value.trim();
+          const apellido2 = document.getElementById("apellido2").value.trim();
+          const dia = document.getElementById("dia").value;
+          const mes = document.getElementById("mes").value;
+          const anio = document.getElementById("anio").value.trim();
+          const sexo = document.getElementById("sexo").value;
+          const estado = document.getElementById("estado").value;
+
+          if (anio.length !== 4) {
+            alert("El año debe contener 4 dígitos.");
+            return;
+          }
+
+          const datos = {
+            nombres,
+            apellido1,
+            apellido2,
+            dia,
+            mes,
+            anio,
+            sexo,
+            estado,
+          };
+
+          const curpGenerada = generarCurp(datos);
+          datosGenerados = { ...datos, curp: curpGenerada };
+
+          textoCurp.textContent = curpGenerada;
+          textoNombre.textContent = `${nombres} ${apellido1} ${apellido2}`;
+          resultado.style.display = "flex";
+          botonPdf.disabled = false;
+        });
+
+        if (botonPdf) {
+          botonPdf.addEventListener("click", function () {
+            if (!datosGenerados || !window.jspdf) {
+              return;
+            }
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.text("Constancia CURP", 20, 20);
+            doc.text(`Nombre: ${datosGenerados.nombres} ${datosGenerados.apellido1} ${datosGenerados.apellido2}`, 20, 35);
+            doc.text(
+              `Fecha de nacimiento: ${datosGenerados.dia}/${datosGenerados.mes}/${datosGenerados.anio}`,
+              20,
+              45
+            );
+            doc.text(`Sexo: ${datosGenerados.sexo === "H" ? "Hombre" : "Mujer"}`, 20, 55);
+            doc.text(`Entidad: ${obtenerNombreEstado(datosGenerados.estado)}`, 20, 65);
+            doc.text(`CURP: ${datosGenerados.curp}`, 20, 80);
+            doc.save(`CURP_${datosGenerados.curp}.pdf`);
+          });
+        }
+      }
+
+      function generarCurp(datos) {
+        const apellidoPaterno = limpiarApellido(datos.apellido1);
+        const apellidoMaterno = limpiarApellido(datos.apellido2);
+        const nombresLimpios = normalizarCadena(datos.nombres);
+        const nombresPartes = nombresLimpios.split(/\s+/).filter(Boolean);
+        const nombreClave = obtenerNombreClave(nombresPartes);
+
+        const letraApellidoPaterno = obtenerPrimeraLetra(apellidoPaterno);
+        const vocalInterna = obtenerPrimeraVocalInterna(apellidoPaterno);
+        const letraApellidoMaterno = obtenerPrimeraLetra(apellidoMaterno);
+        const letraNombre = obtenerPrimeraLetra(nombreClave);
+
+        const fecha = `${datos.anio.slice(-2)}${datos.mes}${datos.dia}`;
+
+        const consonantePaterno = obtenerPrimeraConsonanteInterna(apellidoPaterno);
+        const consonanteMaterno = obtenerPrimeraConsonanteInterna(apellidoMaterno);
+        const consonanteNombre = obtenerPrimeraConsonanteInterna(nombreClave);
+
+        const base =
+          letraApellidoPaterno +
+          vocalInterna +
+          letraApellidoMaterno +
+          letraNombre +
+          fecha +
+          datos.sexo +
+          normalizarEntidad(datos.estado) +
+          consonantePaterno +
+          consonanteMaterno +
+          consonanteNombre;
+
+        const homoclave = "0";
+        const digito = calcularDigitoVerificador(base + homoclave);
+
+        return base + homoclave + digito;
+      }
+
+      function normalizarCadena(texto) {
+        return texto
+          .trim()
+          .toUpperCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/Ñ/g, "X")
+          .replace(/[^A-Z\s]/g, "");
+      }
+
+      function limpiarApellido(apellido) {
+        const sinPrefijos = normalizarCadena(apellido).split(/\s+/).filter(Boolean);
+        const prefijos = [
+          "DA",
+          "DAS",
+          "DE",
+          "DEL",
+          "DER",
+          "DI",
+          "DIE",
+          "DD",
+          "EL",
+          "LA",
+          "LAS",
+          "LOS",
+          "LE",
+          "LES",
+          "MAC",
+          "MC",
+          "VAN",
+          "VON",
+          "Y",
+        ];
+        while (sinPrefijos.length > 1 && prefijos.includes(sinPrefijos[0])) {
+          sinPrefijos.shift();
+        }
+        return sinPrefijos.join(" ");
+      }
+
+      function obtenerNombreClave(nombres) {
+        if (!nombres.length) {
+          return "";
+        }
+        const excluidos = ["JOSE", "J", "J.", "JO", "MARIA", "MA", "MA.", "M"];
+        if (nombres.length > 1 && excluidos.includes(nombres[0])) {
+          for (let i = 1; i < nombres.length; i++) {
+            if (!excluidos.includes(nombres[i])) {
+              return nombres[i];
+            }
+          }
+        }
+        return nombres[0];
+      }
+
+      function obtenerPrimeraLetra(texto) {
+        return texto.replace(/\s+/g, "").charAt(0) || "X";
+      }
+
+      function obtenerPrimeraVocalInterna(texto) {
+        const sinEspacios = texto.replace(/\s+/g, "");
+        for (let i = 1; i < sinEspacios.length; i++) {
+          if ("AEIOU".includes(sinEspacios[i])) {
+            return sinEspacios[i];
+          }
+        }
+        return "X";
+      }
+
+      function obtenerPrimeraConsonanteInterna(texto) {
+        const sinEspacios = texto.replace(/\s+/g, "");
+        for (let i = 1; i < sinEspacios.length; i++) {
+          const letra = sinEspacios[i];
+          if (!"AEIOU".includes(letra)) {
+            return letra;
+          }
+        }
+        return "X";
+      }
+
+      function normalizarEntidad(entidad) {
+        return entidad;
+      }
+
+      function obtenerNombreEstado(clave) {
+        const estados = {
+          AS: "Aguascalientes",
+          BC: "Baja California",
+          BS: "Baja California Sur",
+          CC: "Campeche",
+          CS: "Chiapas",
+          CH: "Chihuahua",
+          CL: "Coahuila",
+          DF: "Ciudad de México",
+          CM: "Colima",
+          DG: "Durango",
+          MC: "Estado de México",
+          GT: "Guanajuato",
+          GR: "Guerrero",
+          HG: "Hidalgo",
+          JC: "Jalisco",
+          MN: "Michoacán",
+          MS: "Morelos",
+          NT: "Nayarit",
+          NL: "Nuevo León",
+          OC: "Oaxaca",
+          PL: "Puebla",
+          QT: "Querétaro",
+          QR: "Quintana Roo",
+          SP: "San Luis Potosí",
+          SL: "Sinaloa",
+          SR: "Sonora",
+          TC: "Tabasco",
+          TS: "Tamaulipas",
+          TL: "Tlaxcala",
+          VZ: "Veracruz",
+          YN: "Yucatán",
+          ZS: "Zacatecas",
+          NE: "Nacido en el extranjero",
+        };
+        return estados[normalizarEntidad(clave)] || clave;
+      }
+
+      function calcularDigitoVerificador(curp17) {
+        const valores = "0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+        let suma = 0;
+        for (let i = 0; i < curp17.length; i++) {
+          const valor = valores.indexOf(curp17[i]);
+          if (valor === -1) {
+            continue;
+          }
+          suma += valor * (18 - (i + 1));
+        }
+        const resto = suma % 10;
+        return ((10 - resto) % 10).toString();
       }
     </script>
   </body>
